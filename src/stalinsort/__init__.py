@@ -1,10 +1,8 @@
-def sort(data):
-    length = len(data)
-    i = 1
-    while i < length:
-        if not data[i] >= data[i - 1]:
-            del(data[i])
-            length -= 1
-        else:
-            i += 1
-    return data
+from typing import Any, List, Sequence
+
+from .StalinList import StalinList
+
+def sort(seq: Sequence[Any]) -> Sequence[Any]:
+    sl = StalinList(seq)
+    sl.sort()
+    return seq.__class__(sl)
